@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast — GTA 6 Style Cover Studio</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="logo">NEON COAST</span><span class="tag">Cover Studio</span></div>
+  <p class="promise">Your photos never leave this machine. Works offline.</p>
+  <div class="top-actions">
+    <button id="undo" type="button" disabled>Undo</button>
+    <button id="redo" type="button" disabled>Redo</button>
+  </div>
+</header>
+<main class="workspace">
+  <aside class="controls">
+    <section>
+      <h2>1 · Photos</h2>
+      <p class="hint">Three slots. Upload your own, or tap a thumbnail to cycle the samples.</p>
+      <div id="photoSlots" class="slots"></div>
+      <button id="sampleAll" type="button" class="ghost">Load all three samples</button>
+    </section>
+    <section>
+      <h2>2 · Layout</h2>
+      <div id="layoutButtons" class="picks"></div>
+    </section>
+    <section>
+      <h2>3 · Grade</h2>
+      <div id="gradeButtons" class="picks"></div>
+    </section>
+    <section>
+      <h2>4 · Lettering</h2>
+      <label>Title <input id="titleInput" type="text" maxlength="28" value="BOULEVARD QUEEN"></label>
+      <label>Subtitle <input id="subtitleInput" type="text" maxlength="40" value="vice city nights"></label>
+      <label>Badge <input id="badgeInput" type="text" maxlength="18" value="VICE CITY"></label>
+    </section>
+    <section>
+      <h2>5 · Selected panel</h2>
+      <p class="hint"><span id="panelLabel">Panel 1 of 4</span> — click a panel in the preview, then drag it to move its photo.</p>
+      <label>Photo in this panel <select id="panelPhoto"></select></label>
+      <label>Zoom <span id="zoomVal">100%</span>
+        <input id="zoom" type="range" min="1" max="3" step="0.05" value="1">
+      </label>
+      <div class="row">
+        <button id="fillAll" type="button" class="ghost">Fill all panels with this photo</button>
+        <button id="resetPanel" type="button" class="ghost">Reset panel</button>
+      </div>
+      <label class="check"><input id="grainToggle" type="checkbox" checked> Film grain</label>
+      <label class="check"><input id="vignetteToggle" type="checkbox" checked> Vignette</label>
+    </section>
+    <section>
+      <h2>6 · Export</h2>
+      <div id="sizeButtons" class="picks"></div>
+      <button id="exportBtn" type="button" class="export">Export PNG</button>
+      <p id="status" role="status"></p>
+    </section>
+    <p class="fine">Original art and lettering made for this app. No Rockstar Games logo,
+    artwork or font. Display type: Anton (SIL OFL). Script: Pacifico (SIL OFL).
+    Sample photos: two made for make.fun with an image model, one made with an
+    image model for this entry.</p>
+  </aside>
+  <section class="stage">
+    <canvas id="cover" width="1920" height="1080" aria-label="Cover preview"></canvas>
+    <p class="stage-hint">Click a panel to select it · drag to move its photo · the preview is the cover at export size</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
